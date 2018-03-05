@@ -1,0 +1,46 @@
+{
+  "name": "vscode-git-appraise",
+  "displayName": "vscode-git-appraise",
+  "description": "",
+  "version": "0.0.1",
+  "publisher": "thiht",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.20.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onCommand:git.appraise.requestReview"],
+  "main": "./out/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "git.appraise.requestReview",
+        "title": "Git Appraise: Request Review"
+      }
+    ]
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "lint-staged": {
+    "*.{ts,json,md}": ["prettier --write", "git add"]
+  },
+  "dependencies": {
+    "vscode": "^1.1.10"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^7.0.43",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
+    "prettier": "1.11.0",
+    "tslint": "^5.9.1",
+    "tslint-config-prettier": "^1.9.0",
+    "typescript": "^2.7.2"
+  }
+}
